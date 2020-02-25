@@ -6,4 +6,4 @@
   tasks:
     -
       name: "Configuring Guacamole"
-      include: ansible/Guac.yml
+      include: Guac.yml
