@@ -1,7 +1,6 @@
 ﻿# Guacamole Gateway
 Primary goal is to use Vagrant to deploy Guacamole on CentOS as a means to provide a HTML5 GUI for multiple Projects.
 
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -36,13 +35,13 @@ yum -y install https://releases.hashicorp.com/vagrant/1.9.6/vagrant_1.9.6_x86_64
 sudo yum install git
 ```
 
-### Downloading domino4wine-Vagrant-SikuliX Project
+### Downloading Vagrant-Guacamole-CentOS-8.1 Project
 
 Open up a terminal and perform the following git command:
 
 ```shell
-git clone 
-cd MyAccount-Guacamole
+git clone https://github.com/Makr91/Vagrant-Guacamole-CentOS-8.1.git
+cd Vagrant-Guacamole-CentOS-8.1
 ```
 ### Starting Vagrant
 The installation process is estimated to take about 15 - 30 Minutes (mayber longer on older machines)
@@ -68,7 +67,7 @@ Please read [CONTRIBUTING.md](https://www.prominic.net) for details on our code 
 
 * **Mark Gilbert** - *Initial work* - [Makr91](https://github.com/Makr91)
 
-See also the list of [contributors](https://github.com/prominic/domino4wine-Vagrant-SikuliX/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Makr91/Vagrant-Guacamole-CentOS-8.1/graphs/contributors) who participated in this project.
 
 ## License
 
