@@ -1,5 +1,5 @@
 ﻿# Guacamole Gateway
-Primary goal is to use Vagrant on Solaris, and Linux to deploy Guacamole on CentOS as a means to provide a HTML5 GUI for multiple Projects.
+Primary goal is to use Vagrant to deploy Guacamole on CentOS as a means to provide a HTML5 GUI for multiple Projects.
 
 
 ## Getting Started
