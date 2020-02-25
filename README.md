@@ -1,11 +1,7 @@
 ﻿# Guacamole Gateway
 Primary goal is to use Vagrant on Solaris, and Linux to deploy Guacamole on CentOS as a means to provide a HTML5 GUI for multiple Projects.
 
-Current Projects this is designed for:
 
-- ![Domino4Wine](https://github.com/prominic/domino4wine-Vagrant-SikuliX)
-- ![MyAccount-Native-on-Royale](https://github.com/prominic/MyAccount-Native-on-Royale)
- 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -45,7 +41,7 @@ sudo yum install git
 Open up a terminal and perform the following git command:
 
 ```shell
-git clone https://github.com/prominic/MyAccount-Guacamole.git
+git clone 
 cd MyAccount-Guacamole
 ```
 ### Starting Vagrant
@@ -62,8 +58,7 @@ vagrant up
 * [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) - A Vagrant plugin to keep your VirtualBox Guest Additions up to date.
 * [vagrant-reload](https://github.com/aidanns/vagrant-reload) - A Vagrant plugin that allows you to reload a Vagrant plugin as a provisioning step.
 * [vagrant-disksize](https://github.com/sprotheroe/vagrant-disksize) - A Vagrant plugin to resize disks in VirtualBox.
-* [Domino4Wine](https://www.prominic.net) - Making this entire project possible.
-* [DominoHelp](http://dominohelp.com/) - Great resource for Domino related issues and advice.
+
 
 ## Contributing
 
@@ -71,7 +66,7 @@ Please read [CONTRIBUTING.md](https://www.prominic.net) for details on our code 
 
 ## Authors
 
-* **Mark Gilbert** - *Initial work* - [MarkProminic](https://github.com/MarkProminic)
+* **Mark Gilbert** - *Initial work* - [Makr91](https://github.com/Makr91)
 
 See also the list of [contributors](https://github.com/prominic/domino4wine-Vagrant-SikuliX/graphs/contributors) who participated in this project.
 
