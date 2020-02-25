@@ -1,7 +1,4 @@
 --- 
--
-  yum:
-    name: openssl-devel
 - 
   blockinfile: 
     block: "     URIEncoding=\"UTF-8\"\n"
@@ -41,7 +38,7 @@
 - 
   ignore_errors: true
   name: "Generating Java KeyStore Certs"
-  shell: "keytool -genkey -alias ClientInitialKey -keyalg RSA -keysize 4096 -keystore /usr/share/tomcat/webapps/.keystore -storepass Guac2019 -keypass Guac2019 -noprompt -dname \"CN='', OU='', O='', L='', S='', C=''\"\n"
+  shell: "keytool -genkey -alias {{ identifier }} -keyalg RSA -keysize 4096 -keystore /usr/share/tomcat/webapps/.keystore -storepass Guac2019 -keypass Guac2019 -noprompt -dname \"CN='', OU='', O='', L='', S='', C=''\"\n"
 - 
   name: "Restarting and Enabling Tomcat"
   systemd: 
@@ -55,19 +52,15 @@
     name: guacd
     state: restarted
 - 
-  name: "Adding guacamole.key"
+  name: "Adding SSL key from Vagrant Share"
   synchronize:
     src: /vagrant/ssl/guacamole.key
     dest: /etc/nginx/guacamole.key
 - 
-  name: "Adding guacamole.crt"
+  name: "Adding SSL Cert from Vagrant Share"
   synchronize:
     src: /vagrant/ssl/guacamole.crt 
     dest: /etc/nginx/guacamole.crt  
-#- 
-#  ignore_errors: true
-#  name: "Generating SSL Certs"
-#  shell: "openssl req -x509 -sha512 -nodes -days 365 -newkey rsa:4096 -keyout /etc/nginx/guacamole.key -out /etc/nginx/guacamole.crt -subj \"/C=''/ST=''/L=''/O=''/OU=''/CN=''\"\n"
 - 
   blockinfile: 
     block: |
@@ -137,12 +130,12 @@
 - 
   name: Adding Branding
   copy:
-    src: /vagrant/branding.jar
+    src: /vagrant/jars/branding.jar
     dest: /var/lib/guacamole/extensions/branding.jar 
 #- 
 #  name: Adding extension
 #  copy:
-#    src: /vagrant/guacamole-auth-domino-1.0.0.jar
+#    src: /vagrant/guacamole-auth-1.0.0.jar
 #    dest: /var/lib/guacamole/extensions/guacamole-auth-1.0.0.jar 
 - 
   get_url: 
@@ -185,8 +178,4 @@
     - guacd
     - tomcat
     - nginx
-- 
-  command: "/usr/sbin/route add default gw {{ gateway }}"
-  name: "Changing Default Route to {{ gateway }}"
-  ignore_errors: true
 

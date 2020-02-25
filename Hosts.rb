@@ -41,7 +41,7 @@ class Hosts
           vb.customize ['modifyvm', :id, '--ostype', 'RedHat_64']
           vb.customize ["modifyvm", :id, "--vrde", "on"]
           vb.customize ["modifyvm", :id, "--vrdeport", "3941"]
-          vb.customize ["modifyvm", :id, "--vrdeaddress", "192.168.2.11"]
+          vb.customize ["modifyvm", :id, "--vrdeaddress", "0.0.0.0"]
           vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
 		  
           if host.has_key?('provider')
@@ -64,17 +64,10 @@ class Hosts
 #              nfs: true
             end
         end
-		# Add Branch Files to Vagrant Share on VM
-        if host.has_key?('branch')
-            server.vm.provision 'shell' do |s|
-              s.path = scriptsPath + '/add-branch.sh'
-              s.args = host['branch']
-            end
-        end
 		
         ##Start Ansible Loop
         server.vm.provision :ansible_local do |ansible|
-          ansible.playbook = "Setup.yml"
+          ansible.playbook = "ansible/Setup.yml"
           ansible.extra_vars = {ip:host['ip'],gateway:host['gateway'],identifier:host['identifier'] }
         end
         # Run custom provisioners
